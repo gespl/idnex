@@ -1,21 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<script type="text/javascript">
-	document.addEventListener('contextmenu', event => event.preventDefault());
-	$(document).keydown(function (event) {
-	    if (event.keyCode == 123) { // Prevent F12
-	        return false;
-	    } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I
-	        return false;
-	    }
-	});
-	$(document).keyup(function(b) {
-	    if (b.keyCode == 16) {return false;}
-	    if (b.keyCode == 17) {return false;}
-	    return false;
-	});
-</script>
 <head>
+  <script src="static/assets/vendor/jquery/jquery.min.js"></script>
   <meta name="google-site-verification" content="XtBLcqG479K_DlXyNVuy09StZWWG96S8Iat1rdVxDEE" />
   <meta name="keywords" content="softwares, software company in surendranagar, software company in india, software company near me, websites, wesite development, web development, apps, app development, software developer, windows app development, python, java, c++, android app development, ios app development" />
   <link href="logo.png" rel="icon">
@@ -27,6 +13,29 @@
   <meta name="og:description" content="We develop cutting edge softwares and websites. We develop Android Apps, IOS Apps, Windows Apps, Websites, Rest-APIs, Web-Servers, etc. We have experience in programming languages like Python, Java, Android, Swift, Ruby, C++, C#, PHP, etc. We can guarantee you a satisfactory work done in give time and cheakest rate." />
   <link href="static/logo.png" rel="icon">
   <style type="text/css">
+    @keyframes rotation {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }
+    }
+    .vertically-middle{
+      width: 15%; margin-left: 42.5%; position: fixed; top: 42.5%; animation: rotation 1s infinite linear; transition: transform 1s;
+    }
+    .vertically-middle1{
+      width: 10%; margin-left: 45%; position: fixed; top: 45%;
+    }
+    .ani-lines{
+      height: 100px; border-radius: 50px;
+    }
+    .ani-lines1{
+      height: 180px; border-radius: 90px;
+    }
+    .allmargintranse *{
+      transition: right 0.5s, left 0.5s;
+    }
     *{
       user-select: none;
     }
@@ -45,6 +54,18 @@
       .contactusdown{
         margin-top: 0px;
       }
+      .vertically-middle{
+        width: 30%; margin-left: 35%; position: fixed;
+      }
+      .vertically-middle1{
+        width: 20%; margin-left: 40%; position: fixed;
+      } 
+      .ani-lines{
+        height: 70px; border-radius: 35px;
+      }
+      .ani-lines1{
+        height: 110px; border-radius: 55px;
+      }
     }
   </style>
   <link href="css.css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
@@ -57,7 +78,8 @@
   <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="static/assets/css/style.css" rel="stylesheet">
 </head>
-<body>
+<body onload="clearloading();">
+  <div class="all" style="">
   <section id="topbar" class="d-none d-lg-block">
     <div class="container d-flex">
       <div class="contact-info me-auto">
@@ -679,7 +701,6 @@
   </footer>
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-  <script src="static/assets/vendor/jquery/jquery.min.js"></script>
   <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
   <script src="static/assets/vendor/php-email-form/validate.js"></script>
@@ -693,6 +714,62 @@
 
   <!-- Template Main JS File -->
   <script src="static/assets/js/main.js"></script>
+</div>
+<style type="text/css">
+  .to-display-none{
+    z-index: 500;
+  }
+</style>
+<nav class="anibg to-display-none" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background-color: white; transition: opacity 0.3s;"></nav>
+<script type="text/javascript">
+    function vam(a) {
+    height = $(a).height();
+    windowheight = $(window).height();
+    windowheight /= 2;
+    height /= 2;
+    height = windowheight - height;
+    $(a).css("top", height+'px');
+  }
+</script>
+<img src="static/loading.png" class="vertically-middle lodinglogo to-display-none" style="opacity: 1; transition: opacity 0.3s;" onload='vam(".vertically-middle");'>
+<img src="static/ge logo.png" class="vertically-middle1 lodinglogo to-display-none" style="opacity: 1; transition: opacity 0.3s;" onload='vam(".vertically-middle1");'> 
+<nav class="allmargintranse to-display-none">
+<nav style="width: 70%; position: fixed; bottom: 8%; background-color: #0178ff; left: -10%;" class="ani-lines to-display-none"></nav>
+<nav style="position: fixed; height: 180px; width: 180px; border-radius: 90px; background-color: #5ca9ff; right: -50px; bottom: -50px;" class="ballb1 to-display-none"></nav>
+<nav style="position: fixed; height: 250px; width: 250px; border-radius: 125px; background-color: #01ddff; left: -180px; top: 200px;" class="ballb2 to-display-none"></nav>
+<nav style="width: 70%; position: fixed; top: 8%; background-color: #084993; right: -30%;" class="ani-lines1 to-display-none"></nav>
+</nav>
+<script type="text/javascript">
+  function clearloading(){
+    setTimeout(function(){
+      $(".ani-lines1").css('right', "-80%");  
+      $(".ani-lines").css('left', "-80%");
+    }, 10);
+    setTimeout(function(){
+      $(".ballb1").css("right", "-180px");
+      $(".ballb2").css("left", "-250px");
+    }, 250);
+    setTimeout(function(){
+      $(".lodinglogo").css("opacity", "0");
+    }, 550);
+    setTimeout(function(){
+      $(".anibg").css("opacity", "0");
+    }, 850);
+  };
+   document.addEventListener('contextmenu', event => event.preventDefault());
+  $(document).keydown(function (event) {
+      if (event.keyCode == 123) { // Prevent F12
+          return false;
+      } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I
+          return false;
+      }
+  });
+  $(document).keyup(function(b) {
+      if (b.keyCode == 16) {return false;}
+      if (b.keyCode == 17) {return false;}
+      return false;
+  });
+</script>
 </body>
 
 </html>
